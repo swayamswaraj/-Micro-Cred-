@@ -75,7 +75,7 @@ const SKILL_NSQF_MAP: { [key: string]: number } = {
   cybersecurity: 8,
 };
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://micro-cred-two.vercel.app/api";
 
 async function apiDeleteAvatar() {
   return fetch(`${API_BASE_URL}/api/auth/avatar`, {

@@ -48,7 +48,7 @@ type Student = {
 };
 
 // Define the API Base URL for constructing absolute paths to static files
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "https://micro-cred-two.vercel.app/api";
 
 // StudentModal component
 function StudentModal({

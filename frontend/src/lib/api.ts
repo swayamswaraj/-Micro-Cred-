@@ -1,7 +1,7 @@
 // src/lib/api.ts (FINAL FIX)
 
 export const API_BASE =
-  (import.meta.env.VITE_API_BASE as string) || "http://localhost:5000/api";
+  (import.meta.env.VITE_API_BASE as string) || "https://micro-cred-two.vercel.app/api";
 
 async function request(path: string, opts: RequestInit = {}) {
   const finalHeaders: Record<string, string> = {
