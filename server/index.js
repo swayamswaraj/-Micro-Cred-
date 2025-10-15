@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // --- CORS Configuration (Consolidated & Corrected) ---
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "http://localhost:5173";
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "https://micro-cred-b1g1.vercel.app";
 
 app.use(
   cors({
