@@ -52,7 +52,7 @@ export async function apiLogin(email: string, password: string) {
 }
 
 export async function apiGetProfile() {
-  return request("/auth/profile", { method: "GET" }).catch(() => null);
+  return request("/auth/profile", { method: "GET", credentials: "include" }).catch(() => null);
 }
 
 export async function apiPostCredentialMultipart(formData: FormData) {
