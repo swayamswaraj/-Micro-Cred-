@@ -2,10 +2,10 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Use /tmp (the only writable directory in Vercel)
+// ✅ Use /tmp — the only writable directory on Vercel
 const uploadDir = process.env.UPLOAD_DIR || "/tmp/uploads";
 
-// Create folder if it doesn’t exist
+// ✅ Ensure folder exists (recursive = true for nested paths)
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
