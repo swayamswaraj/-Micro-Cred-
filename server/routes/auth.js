@@ -123,18 +123,22 @@ router.post("/login", async (req, res) => {
 // -----------------------------------------------------------
 router.get("/profile", async (req, res) => {
   try {
+    // Safer token extraction
+    const authHeader = req.headers.authorization;
     const token =
-      req.cookies?.token || req.headers.authorization?.split(" ")[1];
-    if (!token) return res.status(401).json({ message: "No token" });
+      (authHeader && authHeader.startsWith("Bearer ") ? authHeader.split(" ")[1] : null) ||
+      req.cookies?.token;
+
+    if (!token) return res.status(401).json({ message: "No token provided" });
 
     const decoded = jwt.verify(token, JWT_SECRET);
 
     const user = await User.findById(decoded.id).select("-password");
-
     if (!user) return res.status(404).json({ message: "User not found" });
 
     res.json(user);
   } catch (err) {
+    console.error("Profile route error:", err);
     res.status(401).json({ message: "Invalid token" });
   }
 });
